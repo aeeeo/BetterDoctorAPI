@@ -15,10 +15,12 @@ function displayResult(response) {
       let address = name + '<br>' + doctorArray[i].practices[0].visit_address.street + '<br>' + doctorArray[i].practices[0].visit_address.city + ", " + doctorArray[i].practices[0].visit_address.state + " " + doctorArray[i].practices[0].visit_address.zip;
       let phone = doctorArray[i].practices[0].phones[0].number.match(/\d{3}(?=\d{2,3})|\d+/g).join("-");
       let specialty = 'Specialty: ' + doctorArray[i].specialties[0].name;
+      let websiteCheck = doctorArray[i].practices[0].website;
+      let website = (websiteCheck) ? "<a href='"+websiteCheck+"'>"+websiteCheck+"</a>" : "No Website";
 
       $('.errors').empty();
       $('.showDoctor').append($('<div/>', { id: 'showDoctor' + i, class: 'doctor'}))
-      $('#showDoctor'+i).html('<h1>' + name + '</h1>' + '<p>' + specialty + '</p>' + image + '<p>' + bio + '</p><p>' + yesNo + '</p><p>' + address + '</p><p>' + phone + '</p>' + '</p>');
+      $('#showDoctor'+i).html('<h1>' + name + '</h1>' + '<p>' + specialty + '</p>' + image + '<p>' + bio + '</p><p>' + yesNo + '</p><p>' + address + '</p><p>' + phone + '</p>' + '<p>' + website + '</p>');
     }
   } else {
     $('.doctor').remove();
