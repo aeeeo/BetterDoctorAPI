@@ -8,12 +8,12 @@ import './styles.css';
 
 $(document).ready(function() {
     $('#getAilment').click(function() {
-      //gets ailment
+      //gets ailment, clears field
       let ailment = $('#ailment').val();
+      $('#ailment').val("");
       // puts ailment in request object
       let request = new Request(ailment, displayResult, displayError);
-      // runs request method
+      // runs display methods
       request.getDoctors(ailment, displayResult, displayError);
-
   });
 });
