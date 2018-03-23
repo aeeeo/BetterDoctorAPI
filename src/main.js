@@ -7,13 +7,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
 $(document).ready(function() {
-    $('#getAilment').click(function() {
+    $('#getDoctor').click(function() {
       //gets ailment, clears field
-      let ailment = $('#ailment').val();
-      $('#ailment').val("");
+      let query = $('#query').val();
+      $('#query').val("");
       // puts ailment in request object
-      let request = new Request(ailment, displayResult, displayError);
+      let request = new Request(query, displayResult, displayError);
       // runs display methods
-      request.getDoctors(ailment, displayResult, displayError);
+      request.getDoctors(query, displayResult, displayError);
   });
+
 });
