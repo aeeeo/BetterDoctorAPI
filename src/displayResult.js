@@ -8,7 +8,7 @@ function displayResult(response) {
     });
     for (var i = 0; i < doctorArray.length; i++) {
       let name = doctorArray[i].profile.first_name + " " + doctorArray[i].profile.last_name;
-      let image = '<img src="' + doctorArray[i].profile.image_url + '" style="float:left">';
+      let image = '<img src="' + doctorArray[i].profile.image_url + '" style="float:right">';
       let bio = doctorArray[i].profile.bio;
       let acceptsNewPatients = doctorArray[i].practices[0].accepts_new_patients;
       let yesNo = (acceptsNewPatients) ? "Accepting Patients" : "Not accepting patients";
@@ -19,7 +19,7 @@ function displayResult(response) {
       let website = (websiteCheck) ? "<a href='"+websiteCheck+"'>"+websiteCheck+"</a>" : "No Website";
 
       $('.errors').empty();
-      $('.showDoctor').append($('<div/>', { id: 'showDoctor' + i, class: 'doctor'}))
+      $('.showDoctor').append($('<div/>', { id: 'showDoctor' + i, class: 'well'}))
       $('#showDoctor'+i).html('<h1>' + name + '</h1>' + '<p>' + specialty + '</p>' + image + '<p>' + bio + '</p><p>' + yesNo + '</p><p>' + address + '</p><p>' + phone + '</p>' + '<p>' + website + '</p>');
     }
   } else {
