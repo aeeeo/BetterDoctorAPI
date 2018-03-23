@@ -1,21 +1,19 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
-import { GetDoctors } from "../src/doctorLookup.js";
+import { Request } from "../src/request.js";
+import { displayResult } from "../src/displayResult.js";
+import { displayError } from "../src/displayError.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
 $(document).ready(function() {
     $('#getAilment').click(function() {
+      //gets ailment
       let ailment = $('#ailment').val();
-      let getDoctors = new GetDoctors(ailment, displayResult, displayError);
-      getDoctors.doIt(ailment, displayResult, displayError);
+      // puts ailment in request object
+      let request = new Request(ailment, displayResult, displayError);
+      // runs request method
+      request.getDoctors(ailment, displayResult, displayError);
+
   });
 });
-
-let displayResult = function(response){
-  $('.showDoctorList').text(`${response.data[0].profile.first_name}`);
-}
-
-let displayError = function(error){
-  $('.errors').text('error');
-}
