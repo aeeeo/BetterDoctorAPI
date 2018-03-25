@@ -5,10 +5,10 @@
   </head>
   <body>
     <div class='container'>
-      <h1>Portland Doctor Lookup</h1>
+      <h1>Blue Pages Doctor Lookup</h1>
 
-      <label for="ailment">Enter an ailment or Doctor's Name:</label>
-      <input id="query" type="text">
+      <label for="query">Enter an Ailment or Doctor's Name:</label>
+      <input id="query" type="text" onkeyup="this.value=this.value.replace(/[^\A-Za-z ]/,'')">
       <button class="btn-success" id="getDoctor">Find Doctors</button>
 
       <div class="errors"></div>

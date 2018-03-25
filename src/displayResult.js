@@ -17,7 +17,6 @@ function displayResult(response) {
       let specialty = 'Specialty: ' + doctorArray[i].specialties[0].name;
       let websiteCheck = doctorArray[i].practices[0].website;
       let website = (websiteCheck) ? "<a href='"+websiteCheck+"'>"+websiteCheck+"</a>" : "No Website";
-
       $('.errors').empty();
       $('.showDoctor').append($('<div/>', { id: 'showDoctor' + i, class: 'well'}))
       $('#showDoctor'+i).html('<h1>' + name + '</h1>' + '<p>' + specialty + '</p>' + image + '<p>' + bio + '</p><p>' + yesNo + '</p><p>' + address + '</p><p>' + phone + '</p>' + '<p>' + website + '</p>');
